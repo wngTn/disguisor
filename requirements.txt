@@ -1,0 +1,9 @@
+open3d
+opencv-python
+probreg
+configargparse
+trimesh
+pyamg
+scikit-image
+scipy
+pillow

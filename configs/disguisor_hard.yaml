@@ -1,0 +1,16 @@
+experiment: "hard"
+    
+# Registration related
+voxel_size: 0.02
+max_iteration_icp: 250
+max_iteration_filterreg: 3000
+filterreg_w: 0.03
+filterreg_sigma2: 0.00001
+filterreg_tol: 0.00001
+
+# Render related
+alpha_value: 0.725
+add_bboxes: True
+
+texture_list: ["input/texture/1.jpg", "input/texture/2.jpg"]
+default_texture: 'input/texture/1.jpg'

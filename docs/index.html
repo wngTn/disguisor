@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="DisguisOR: Holistic Face Anonymization in the Operating Room.">
+  <meta name="keywords" content="Anonymization, Operating Room">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DisguisOR: Holistic Face Anonymization in the Operating Room</title>
+
+  <link rel="stylesheet" href="./static/css/fonts.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DisguisOR: Holistic Face Anonymization in the Operating Room</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.cs.cit.tum.de/camp/members/lennart-bastian/" target="_blank">Lennart
+                  Bastian</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                <a href="https://wngtn.github.io" target="_blank">Tony Danjun
+                  Wang</a><sup>*1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.cs.cit.tum.de/camp/members/tobias-czempiel/" target="_blank">Tobias
+                  Czempiel</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.cs.cit.tum.de/camp/members/benjamin-busam/" target="_blank">Benjamin
+                  Busam</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.professoren.tum.de/en/navab-nassir" target="_blank">Nassir Navab</a><sup>1</sup>,
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>*</sup>Shared First Author,</span>
+              <span class="author-block"><sup>1</sup>Technical University of Munich</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2307.14241" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/wngTn/disguisor" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/animation.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DisguisOR anonymizes faces using 3D data and rendered human mesh models.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Purpose: Recent advances in Surgical Data Science (SDS) have contributed to an increase in video
+              recordings from hospital environments. While methods such as surgical workflow recognition show potential
+              in increasing the quality of patient care, the quantity of video data has surpassed the scale at which
+              images can be manually anonymized. Existing automated 2D anonymization methods underperform in Operating
+              Rooms (OR), due to occlusions and obstructions. We propose to anonymize multi-view OR recordings using 3D
+              data from multiple camera streams.
+            </p>
+            <p>
+              Methods: RGB and depth images from multiple cameras are fused into a 3D point cloud representation of the
+              scene. We then detect each individual's face in 3D by regressing a parametric human mesh model onto
+              detected 3D human keypoints and aligning the face mesh with the fused 3D point cloud. The mesh model is
+              rendered into every acquired camera view, replacing each individual's face.
+            </p>
+            <p>
+              Results: Our method shows promise in locating faces at a higher rate than existing approaches. DisguisOR
+              produces geometrically consistent anonymizations for each camera view, enabling more realistic
+              anonymization that is less detrimental to downstream tasks.
+            </p>
+            <p>
+              Conclusion: Frequent obstructions and crowding in operating rooms leaves significant room for improvement
+              for off-the-shelf anonymization methods. DisguisOR addresses privacy on a scene level and has the
+              potential to facilitate further research in SDS.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+
+  <section class="section">
+    <!-- Pipeline. -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Pipeline</h2>
+          <div class="content has-text-justified">
+            <ol class="custom-counter" style="list-style-type: none;">
+              <li><strong>Input:</strong> RGB images, depth maps, and a fused 3D point cloud of the scene.</li>
+              <li><strong>3D Human Pose Key-Point Estimation:</strong> Detect and fuse human pose keypoints in 3D for
+                each person.</li>
+              <li><strong>Human Mesh Fitting:</strong> Fit a 3D mesh for each person by regressing 2D human keypoints
+                into a global 3D coordinate frame.</li>
+              <li><strong>Head Alignment:</strong> Refine mesh positioning by aligning the face mesh with the fused 3D
+                point cloud.</li>
+              <li><strong>Face Extraction:</strong> Extract the face from the refined mesh.</li>
+              <li><strong>Output:</strong> Texturize the 3D mesh and back-project to each camera view, anonymizing each
+                face by replacing each individual's face with the rendered mesh model.</li>
+            </ol>
+            <video id="pipeline" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/disuisor_pipeline.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!-- Pipeline. -->
+
+      <!-- Holistic Recall. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Holistic Recall</h2>
+          <p>
+            <i>Holistic recall</i> is a metric that considers a face detected only if identified in all partially
+            visible camera views, which is crucial in multi-view setups to ensure consistent and complete anonymization
+            across all camera angles, thereby improving privacy and data utility.
+          </p>
+          <br>
+          <video id="holistic_recall-video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/holistic_recall.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Holistic Recall. -->
+
+      <!-- Results. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Results</h2>
+          <p>
+            Results of DisguisOR compared with GAN-based method <a href="https://arxiv.org/abs/1909.04538"
+              target="_blank">DeepPrivacy</a>. <a href="https://arxiv.org/abs/1909.04538"
+              target="_blank">DeepPrivacy</a> struggles to generate a face appropriate to the environment,
+            often replacing a masked face with an unmasked one, whereas our mesh is capable of seamlessly fusing the
+            texture into the image. Even at unusual angles, DisguisOR provides reasonable and uncorrupted faces.
+            However, the rendering technique sometimes results in the texture being rendered on occlusions (third
+            image). If the target face is wearing skull caps, GAN-based methods fail to generate realistic faces,
+            whereas DisguisOR still blends in the replaced face seamlessly.
+          </p>
+          <br>
+          <video id="holistic_recall-video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Results. -->
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{bastian2023disguisor,
+  author    = {Bastian, Lennart and 
+               Wang, Tony D. and 
+               Czempiel, Tobias and 
+               Busam, Benjamin and 
+               Navab, Nassir},
+  title     = {DisguisOR: Holistic Face Anonymization in the Operating Room},
+  journal   = {IPCAI},
+  year      = {2023},
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="./static/videos/DisguisOR_Paper.pdf" target="_blank">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/wngTn" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p style="text-align:center">
+              Source code for this website mainly inspired from <a href="https://keunhong.com/" target="_blank">Keunhong
+                Park</a>'s <a href="https://nerfies.github.io/" target="_blank">Nerfies website</a>.
+            </p>
+            <p style="text-align:center">
+              Contact <a href="https://wngtn.github.io" target="_blank">Tony Danjun
+                Wang</a> or <a href="https://www.cs.cit.tum.de/camp/members/lennart-bastian/" target="_blank">Lennart
+                Bastian</a> for any questions or feedback.
+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GDPR Banner -->
+  <div id="gdpr-banner">
+    This website is hosted on GitHub Pages. GitHub may collect some of your data, such as your IP address and user
+    agent, for analytics and security purposes. The data may be transferred to servers in the United States or other
+    countries outside of the European Economic Area. We do not control GitHub's data collection and processing
+    activities. By using this website, you consent to any data collection and processing by GitHub under their terms and
+    privacy policy. For more information, please read their <a
+      href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+      style="text-decoration:none;color: coral;" onmouseover="style='text-decoration:underline; color: coral'"
+      onmouseout="style='text-decoration:none;color: coral'" target="_blank"> Privacy Policy</a>.
+    <button id="accept-gdpr">I Understand</button>
+  </div>
+
+  <script>
+    // JavaScript to handle the banner
+    document.addEventListener("DOMContentLoaded", function () {
+      const gdprBanner = document.getElementById("gdpr-banner");
+      const acceptButton = document.getElementById("accept-gdpr");
+
+      // Check if the user has already accepted
+      if (localStorage.getItem("gdprAccepted") === "true") {
+        gdprBanner.style.display = "none";
+      }
+
+      // When the user clicks "Accept", hide the banner and set the localStorage item
+      acceptButton.addEventListener("click", function () {
+        gdprBanner.style.display = "none";
+        localStorage.setItem("gdprAccepted", "true");
+      });
+    });
+  </script>
+
+</body>
+
+</html>
