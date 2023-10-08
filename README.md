@@ -188,14 +188,12 @@ If you find this work useful for your research or project, please consider citin
 
 ```bibtex
 @article{bastian2023disguisor,
-    author    = {Bastian, Lennart and 
-                Wang, Tony D. and 
-                Czempiel, Tobias and 
-                Busam, Benjamin and 
-                Navab, Nassir},
-    title     = {DisguisOR: Holistic Face Anonymization in the Operating Room},
-    journal   = {IPCAI},
-    year      = {2023},
+  title={DisguisOR: holistic face anonymization for the operating room},
+  author={Bastian, Lennart and Wang, Tony Danjun and Czempiel, Tobias and Busam, Benjamin and Navab, Nassir},
+  journal={International Journal of Computer Assisted Radiology and Surgery},
+  pages={1--7},
+  year={2023},
+  publisher={Springer}
 }
 ```
 
